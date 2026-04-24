@@ -183,6 +183,9 @@
       /* ── TOOLTIP ── */
       .tt {
         position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         background: #1a1a2e;
         color: #f1f0ea;
         border-radius: 4px;
@@ -197,7 +200,7 @@
         transition: opacity 0.15s;
         z-index: 999;
         line-height: 1.7;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
       }
       .tt.show {
         opacity: 1;
@@ -2168,34 +2171,17 @@
         EP_BOB: `<strong>Bob — UAS (User Agent Server)</strong><span class="tt-note">The callee. Receives the INVITE from Proxy 2, alerts the user, and answers with a 200 OK + SDP.</span><span class="tt-section">── IDENTITY ──</span><span class="tt-code">SIP URI : sip:bob@example.com<br>Contact : sip:bob@192.168.2.5:5060<br>IP      : 192.168.2.5<br>RTP port: 49180 (answered)</span><span class="tt-section">── ROLE IN THIS FLOW ──</span><span class="tt-code">• Receives INVITE from P2, sends 180 Ringing (F9)<br>• Answers with 200 OK + SDP answer (F12) when user picks up<br>• Receives ACK — dialog fully established (F17)<br>• Streams RTP directly to Alice (bypasses proxies)<br>• Initiates hang-up with BYE (F18)<br>• Receives 200 OK from Alice confirming teardown (F23)</span><span class="tt-note">Bob's SDP answer (F12) is the critical message that enables direct RTP between Alice and Bob.</span>`,
       };
       const tt = document.getElementById("tt");
-      document.querySelectorAll(".msg").forEach((el) => {
-        el.addEventListener("mouseenter", (e) => {
+
+      function attachTip(el) {
+        el.addEventListener("mouseenter", () => {
           const d = tips[el.dataset.tip];
-          if (d) {
-            tt.innerHTML = d;
-            tt.classList.add("show");
-          }
-        });
-        el.addEventListener("mousemove", (e) => {
-          tt.style.left = e.clientX + 18 + "px";
-          tt.style.top = e.clientY - 8 + "px";
+          if (d) { tt.innerHTML = d; tt.classList.add("show"); }
         });
         el.addEventListener("mouseleave", () => tt.classList.remove("show"));
-      });
-      document.querySelectorAll(".ep-hoverable").forEach((el) => {
-        el.addEventListener("mouseenter", (e) => {
-          const d = tips[el.dataset.tip];
-          if (d) {
-            tt.innerHTML = d;
-            tt.classList.add("show");
-          }
-        });
-        el.addEventListener("mousemove", (e) => {
-          tt.style.left = e.clientX + 18 + "px";
-          tt.style.top = e.clientY - 8 + "px";
-        });
-        el.addEventListener("mouseleave", () => tt.classList.remove("show"));
-      });
+      }
+
+      document.querySelectorAll(".msg").forEach(attachTip);
+      document.querySelectorAll(".ep-hoverable").forEach(attachTip);
     </script>
   </body>
 </html>

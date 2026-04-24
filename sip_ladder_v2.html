@@ -189,7 +189,9 @@
         padding: 14px 18px;
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.92rem;
-        max-width: 520px;
+        max-width: 580px;
+        max-height: 72vh;
+        overflow-y: auto;
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.15s;
@@ -221,6 +223,30 @@
         line-height: 1.65;
         display: block;
       }
+      .tt .tt-changed {
+        color: #fde68a;
+        font-size: 0.82rem;
+        line-height: 1.65;
+        display: block;
+      }
+      .tt .tt-removed {
+        color: #fca5a5;
+        font-size: 0.82rem;
+        line-height: 1.65;
+        display: block;
+        text-decoration: line-through;
+        opacity: 0.7;
+      }
+      .tt .tt-delta {
+        color: #fb923c;
+        font-size: 0.78rem;
+        display: block;
+        margin-bottom: 6px;
+        padding: 3px 7px;
+        border-left: 2px solid #fb923c;
+        background: rgba(251, 146, 60, 0.08);
+        border-radius: 2px;
+      }
       .tt .tt-note {
         color: #94a3b8;
         font-size: 0.82rem;
@@ -232,57 +258,62 @@
 
       /* ── LEGEND ── */
       .legend-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
         margin-top: 28px;
       }
       .legend-card {
         background: #fdfcf8;
         border: 1px solid #b8c4d8;
         border-radius: 4px;
-        padding: 16px 18px;
+        padding: 20px 22px;
       }
       .legend-card h3 {
         font-family: "IBM Plex Mono", monospace;
-        font-size: 0.65rem;
+        font-size: 0.8rem;
         font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
         color: #6b7280;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         padding-bottom: 8px;
         border-bottom: 1px solid #e5e0d5;
+      }
+      .legend-rows-wrap {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 6px 24px;
       }
       .legend-row {
         display: flex;
         align-items: flex-start;
-        gap: 10px;
-        margin-bottom: 8px;
+        gap: 12px;
+        margin-bottom: 6px;
       }
       .legend-chip {
         flex-shrink: 0;
-        width: 40px;
-        height: 20px;
-        border-radius: 2px;
+        width: 46px;
+        height: 24px;
+        border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: "IBM Plex Mono", monospace;
-        font-size: 0.6rem;
+        font-size: 0.72rem;
         font-weight: 600;
-        margin-top: 1px;
+        margin-top: 2px;
       }
       .legend-text strong {
         display: block;
-        font-size: 0.78rem;
+        font-size: 0.88rem;
         font-weight: 600;
         color: #1a1a2e;
       }
       .legend-text span {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         color: #6b7280;
-        line-height: 1.4;
+        line-height: 1.5;
       }
 
       .c-inv {
@@ -309,6 +340,57 @@
         background: #ffedd5;
         color: #9a3412;
       }
+
+      /* ── REFERENCE TABLES ── */
+      .ref-section {
+        margin-top: 36px;
+      }
+      .ref-section h2 {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #1a3a6e;
+        margin-bottom: 14px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #b8c4d8;
+      }
+      .ref-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.8rem;
+        margin-bottom: 28px;
+      }
+      .ref-table th {
+        background: #edf3fb;
+        color: #1a3a6e;
+        font-weight: 600;
+        padding: 9px 14px;
+        text-align: left;
+        border: 1px solid #b8c4d8;
+        letter-spacing: 0.3px;
+      }
+      .ref-table td {
+        padding: 8px 14px;
+        border: 1px solid #d1d9e6;
+        color: #374151;
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      .ref-table tr:nth-child(even) td {
+        background: #f8f9fc;
+      }
+      .ref-table .code-cell {
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .ref-table .c4xx { color: #9a3412; }
+      .ref-table .c5xx { color: #991b1b; }
+      .ref-table .c1xx { color: #854d0e; }
+      .ref-table .c2xx { color: #166534; }
+      .ref-table .c3xx { color: #1e40af; }
 
       /* ── FOOTER ── */
       .page-footer {
@@ -1534,6 +1616,7 @@
     <div class="legend-grid">
       <div class="legend-card">
         <h3>Message types</h3>
+        <div class="legend-rows-wrap">
         <div class="legend-row">
           <div class="legend-chip c-auth">407</div>
           <div class="legend-text">
@@ -1559,8 +1642,7 @@
           <div class="legend-text">
             <strong>Provisional (1xx)</strong
             ><span
-              >100 Trying = suppress retransmit. 180 Ringing = remote side is
-              alerting user.</span
+              >100 Trying = suppress retransmit (proxy-generated, never forwarded). 180 Ringing = Bob's phone is alerting, forwarded to Alice. 183 Session Progress = early media.</span
             >
           </div>
         </div>
@@ -1594,9 +1676,11 @@
             >
           </div>
         </div>
+        </div>
       </div>
       <div class="legend-card">
         <h3>Key headers in this flow</h3>
+        <div class="legend-rows-wrap">
         <div class="legend-row">
           <div class="legend-chip" style="background: #e0e7ff; color: #3730a3">
             Via
@@ -1667,9 +1751,11 @@
             >
           </div>
         </div>
+        </div>
       </div>
       <div class="legend-card">
         <h3>3 phases at a glance</h3>
+        <div class="legend-rows-wrap">
         <div class="legend-row">
           <div class="legend-chip c-inv">①</div>
           <div class="legend-text">
@@ -1700,6 +1786,74 @@
             >
           </div>
         </div>
+        </div>
+      </div>
+
+      <!-- Provisional responses comparison -->
+      <div class="ref-section">
+        <h2>Provisional Responses — 100 Trying vs 180 Ringing</h2>
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>100 Trying</th>
+              <th>180 Ringing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Sent by</td><td>Proxy (each hop locally)</td><td>End device — Bob</td></tr>
+            <tr><td>Meaning</td><td>"I received your request, processing"</td><td>"Bob's phone is physically ringing"</td></tr>
+            <tr><td>Forwarded by proxies</td><td>No — never forwarded upstream</td><td>Yes — relayed all the way to Alice</td></tr>
+            <tr><td>Effect on sender's neighbor</td><td>Stops retransmission timer</td><td>Alice hears ringback tone</td></tr>
+            <tr><td>Contains Contact header</td><td>No</td><td>Yes — Bob's direct address</td></tr>
+            <tr><td>Introduces Bob's tag</td><td>No</td><td>Yes — To: tag=bb88 appears here first</td></tr>
+            <tr><td>Changes dialog state</td><td>No</td><td>Yes — dialog moves to Early state</td></tr>
+            <tr><td>In this flow</td><td>F6 (P1→Alice), F8 (P2→P1)</td><td>F9 (Bob→P2), F10 (P2→P1), F11 (P1→Alice)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SIP response codes reference -->
+      <div class="ref-section">
+        <h2>SIP Response Codes Reference</h2>
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th style="width:80px">Code</th>
+              <th style="width:180px">Name</th>
+              <th>Meaning &amp; When You See It</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="code-cell c1xx">100</td><td>Trying</td><td>Proxy acknowledges receipt. Stops retransmission timer. Never forwarded upstream.</td></tr>
+            <tr><td class="code-cell c1xx">180</td><td>Ringing</td><td>Called party's device is alerting the user. Phone is ringing. Forwarded to caller.</td></tr>
+            <tr><td class="code-cell c1xx">181</td><td>Call Is Being Forwarded</td><td>UAS is forwarding the call to another destination.</td></tr>
+            <tr><td class="code-cell c1xx">182</td><td>Queued</td><td>Called party is temporarily unavailable — call is queued.</td></tr>
+            <tr><td class="code-cell c1xx">183</td><td>Session Progress</td><td>Used for early media (e.g. ringback tone sent as RTP before answer).</td></tr>
+            <tr><td class="code-cell c2xx">200</td><td>OK</td><td>Request succeeded. On INVITE: carries SDP answer, dialog established.</td></tr>
+            <tr><td class="code-cell c2xx">202</td><td>Accepted</td><td>Used for REFER and SUBSCRIBE — request accepted but not yet acted upon.</td></tr>
+            <tr><td class="code-cell c3xx">301</td><td>Moved Permanently</td><td>Contact has a new permanent address. Caller should retry there.</td></tr>
+            <tr><td class="code-cell c3xx">302</td><td>Moved Temporarily</td><td>Contact is temporarily at a different address. Common in call-forwarding.</td></tr>
+            <tr><td class="code-cell c4xx">400</td><td>Bad Request</td><td>Malformed syntax — the server could not understand the request.</td></tr>
+            <tr><td class="code-cell c4xx">401</td><td>Unauthorized</td><td>End-device (UAS) demands authentication. Uses WWW-Authenticate header (not Proxy-Authenticate).</td></tr>
+            <tr><td class="code-cell c4xx">403</td><td>Forbidden</td><td>Server understood the request but refuses. Credentials valid but not authorized.</td></tr>
+            <tr><td class="code-cell c4xx">404</td><td>Not Found</td><td>Called party does not exist at this domain. URI is unknown.</td></tr>
+            <tr><td class="code-cell c4xx">407</td><td>Proxy Auth Required</td><td>Proxy demands credentials. Seen in F2 — triggers ACK (F3) + retry with Proxy-Authorization (F4).</td></tr>
+            <tr><td class="code-cell c4xx">408</td><td>Request Timeout</td><td>No response received in time. Server gave up waiting.</td></tr>
+            <tr><td class="code-cell c4xx">480</td><td>Temporarily Unavailable</td><td>Called party exists but is not available right now (offline, DND).</td></tr>
+            <tr><td class="code-cell c4xx">481</td><td>Call/Transaction Does Not Exist</td><td>Received BYE or CANCEL for a dialog the server has no record of.</td></tr>
+            <tr><td class="code-cell c4xx">486</td><td>Busy Here</td><td>Called party is busy on another call at this specific device.</td></tr>
+            <tr><td class="code-cell c4xx">487</td><td>Request Terminated</td><td>INVITE was cancelled by a CANCEL request before being answered.</td></tr>
+            <tr><td class="code-cell c4xx">488</td><td>Not Acceptable Here</td><td>SDP offer was rejected — no codec or media format overlap between the two sides.</td></tr>
+            <tr><td class="code-cell c5xx">500</td><td>Internal Server Error</td><td>Generic server-side failure. Something went wrong on the proxy or UAS.</td></tr>
+            <tr><td class="code-cell c5xx">503</td><td>Service Unavailable</td><td>Server is overloaded or down for maintenance. Often includes Retry-After header.</td></tr>
+            <tr><td class="code-cell c5xx">504</td><td>Server Timeout</td><td>Proxy did not receive a response from the downstream server in time.</td></tr>
+            <tr><td class="code-cell c5xx">513</td><td>Message Too Large</td><td>Request body or headers exceed the server's maximum size.</td></tr>
+            <tr><td class="code-cell" style="color:#6b21a8">600</td><td>Busy Everywhere</td><td>Called party is busy on all registered devices — not just one.</td></tr>
+            <tr><td class="code-cell" style="color:#6b21a8">603</td><td>Decline</td><td>Called party explicitly rejected the call. User pressed "Decline".</td></tr>
+            <tr><td class="code-cell" style="color:#6b21a8">604</td><td>Does Not Exist Anywhere</td><td>Called party is known to not exist — not just unknown at this domain.</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -1731,9 +1885,9 @@
 
         F9: `<strong>180 Ringing F9 — Bob → Proxy 2</strong><span class="tt-note">Bob's UA alerts the user (phone ringing). Bob's dialog tag (bb88) added to To header for the first time.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
 
-        F10: `<strong>180 Ringing F10 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 180 upstream. Strips its Via (top) — responses always follow the Via stack in reverse.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F10: `<strong>180 Ringing F10 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 180 upstream. Strips its Via (top) — responses always follow the Via stack in reverse.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
 
-        F11: `<strong>180 Ringing F11 — Proxy 1 → Alice</strong><span class="tt-note">P1 delivers 180 to Alice. Alice hears ringback tone. Bob's tag (bb88) now visible in To header.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F11: `<strong>180 Ringing F11 — Proxy 1 → Alice</strong><span class="tt-note">P1 delivers 180 to Alice. Alice hears ringback tone. Bob's tag (bb88) now visible in To header.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
 
         F12: `<strong>200 OK F12 — Bob Answers!</strong><span class="tt-note">Critical message: Bob's SDP answer contains his chosen codec, RTP IP, and port. Media can now flow.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;<br>Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (Answer) ──</span><span class="tt-code">v=0<br>o=bob 98765 1 IN IP4 192.168.2.5<br>c=IN IP4 192.168.2.5<br>m=audio 49180 RTP/AVP 0<br>a=rtpmap:0 PCMU/8000</span><span class="tt-note">Bob selects PCMU on port 49180 — RTP now ready to flow</span>`,
 

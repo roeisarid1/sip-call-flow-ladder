@@ -386,11 +386,21 @@
         font-weight: 600;
         white-space: nowrap;
       }
-      .ref-table .c4xx { color: #9a3412; }
-      .ref-table .c5xx { color: #991b1b; }
-      .ref-table .c1xx { color: #854d0e; }
-      .ref-table .c2xx { color: #166534; }
-      .ref-table .c3xx { color: #1e40af; }
+      .ref-table .c4xx {
+        color: #9a3412;
+      }
+      .ref-table .c5xx {
+        color: #991b1b;
+      }
+      .ref-table .c1xx {
+        color: #854d0e;
+      }
+      .ref-table .c2xx {
+        color: #166534;
+      }
+      .ref-table .c3xx {
+        color: #1e40af;
+      }
 
       /* ── FOOTER ── */
       .page-footer {
@@ -437,26 +447,42 @@
       <div class="diagram-wrap">
         <!-- Endpoint header -->
         <div class="endpoints-row">
-          <div class="endpoint-col ep-hoverable" data-tip="EP_ALICE" style="cursor:pointer">
+          <div
+            class="endpoint-col ep-hoverable"
+            data-tip="EP_ALICE"
+            style="cursor: pointer"
+          >
             <div class="ep-icon alice">📱</div>
             <div class="ep-name alice">Alice</div>
             <div class="ep-sub">UAC · Caller</div>
             <div class="ep-ip">192.168.1.10</div>
           </div>
-          <div class="endpoint-col ep-hoverable" data-tip="EP_P1" style="cursor:pointer">
+          <div
+            class="endpoint-col ep-hoverable"
+            data-tip="EP_P1"
+            style="cursor: pointer"
+          >
             <div class="ep-icon proxy">🖧</div>
             <div class="ep-name proxy">Proxy 1</div>
             <div class="ep-sub">Outbound<br />Proxy</div>
             <div class="ep-ip">10.10.1.1</div>
           </div>
           <div class="endpoint-col"></div>
-          <div class="endpoint-col ep-hoverable" data-tip="EP_P2" style="cursor:pointer">
+          <div
+            class="endpoint-col ep-hoverable"
+            data-tip="EP_P2"
+            style="cursor: pointer"
+          >
             <div class="ep-icon proxy">🖧</div>
             <div class="ep-name proxy">Proxy 2</div>
             <div class="ep-sub">Inbound<br />Proxy</div>
             <div class="ep-ip">10.10.2.1</div>
           </div>
-          <div class="endpoint-col ep-hoverable" data-tip="EP_BOB" style="cursor:pointer">
+          <div
+            class="endpoint-col ep-hoverable"
+            data-tip="EP_BOB"
+            style="cursor: pointer"
+          >
             <div class="ep-icon bob">📱</div>
             <div class="ep-name bob">Bob</div>
             <div class="ep-sub">UAS · Callee</div>
@@ -1617,175 +1643,193 @@
       <div class="legend-card">
         <h3>Message types</h3>
         <div class="legend-rows-wrap">
-        <div class="legend-row">
-          <div class="legend-chip c-auth">407</div>
-          <div class="legend-text">
-            <strong>Auth challenge</strong
-            ><span
-              >407 Proxy Auth Required — proxy demands credentials before
-              forwarding. Triggers ACK + retry.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-auth">407</div>
+            <div class="legend-text">
+              <strong>Auth challenge</strong
+              ><span
+                >407 Proxy Auth Required — proxy demands credentials before
+                forwarding. Triggers ACK + retry.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-inv">INV</div>
-          <div class="legend-text">
-            <strong>INVITE</strong
-            ><span
-              >Initiates or modifies a session. Carries SDP offer (codec, IP,
-              port).</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-inv">INV</div>
+            <div class="legend-text">
+              <strong>INVITE</strong
+              ><span
+                >Initiates or modifies a session. Carries SDP offer (codec, IP,
+                port).</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-prov">1xx</div>
-          <div class="legend-text">
-            <strong>Provisional (1xx)</strong
-            ><span
-              >100 Trying = suppress retransmit (proxy-generated, never forwarded). 180 Ringing = Bob's phone is alerting, forwarded to Alice. 183 Session Progress = early media.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-prov">1xx</div>
+            <div class="legend-text">
+              <strong>Provisional (1xx)</strong
+              ><span
+                >100 Trying = suppress retransmit (proxy-generated, never
+                forwarded). 180 Ringing = Bob's phone is alerting, forwarded to
+                Alice. 183 Session Progress = early media.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-ok">200</div>
-          <div class="legend-text">
-            <strong>200 OK</strong
-            ><span
-              >Final success. When replying to INVITE, carries SDP answer (Bob's
-              codec + RTP port).</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-ok">200</div>
+            <div class="legend-text">
+              <strong>200 OK</strong
+              ><span
+                >Final success. When replying to INVITE, carries SDP answer
+                (Bob's codec + RTP port).</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-ack">ACK</div>
-          <div class="legend-text">
-            <strong>ACK</strong
-            ><span
-              >Confirms 200 OK for INVITE. Completes 3-way handshake. Not used
-              for other methods.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-ack">ACK</div>
+            <div class="legend-text">
+              <strong>ACK</strong
+              ><span
+                >Confirms 200 OK for INVITE. Completes 3-way handshake. Not used
+                for other methods.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-bye">BYE</div>
-          <div class="legend-text">
-            <strong>BYE</strong
-            ><span
-              >Terminates an active dialog. Either party can initiate. Follows
-              Record-Route path.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-bye">BYE</div>
+            <div class="legend-text">
+              <strong>BYE</strong
+              ><span
+                >Terminates an active dialog. Either party can initiate. Follows
+                Record-Route path.</span
+              >
+            </div>
           </div>
-        </div>
         </div>
       </div>
       <div class="legend-card">
         <h3>Key headers in this flow</h3>
         <div class="legend-rows-wrap">
-        <div class="legend-row">
-          <div class="legend-chip" style="background: #e0e7ff; color: #3730a3">
-            Via
-          </div>
-          <div class="legend-text">
-            <strong>Via</strong
-            ><span
-              >Added by each hop. Response is routed back via Via headers in
-              reverse order.</span
+          <div class="legend-row">
+            <div
+              class="legend-chip"
+              style="background: #e0e7ff; color: #3730a3"
             >
+              Via
+            </div>
+            <div class="legend-text">
+              <strong>Via</strong
+              ><span
+                >Added by each hop. Response is routed back via Via headers in
+                reverse order.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip" style="background: #e0e7ff; color: #3730a3">
-            R-R
-          </div>
-          <div class="legend-text">
-            <strong>Record-Route</strong
-            ><span
-              >Proxies inject themselves so they remain in the signaling path
-              for BYE.</span
+          <div class="legend-row">
+            <div
+              class="legend-chip"
+              style="background: #e0e7ff; color: #3730a3"
             >
+              R-R
+            </div>
+            <div class="legend-text">
+              <strong>Record-Route</strong
+              ><span
+                >Proxies inject themselves so they remain in the signaling path
+                for BYE.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip" style="background: #dcfce7; color: #166534">
-            SDP
-          </div>
-          <div class="legend-text">
-            <strong>SDP body</strong
-            ><span
-              >INVITE carries offer (Alice's codec list, IP, port). 200 OK
-              carries answer (Bob's choice).</span
+          <div class="legend-row">
+            <div
+              class="legend-chip"
+              style="background: #dcfce7; color: #166534"
             >
+              SDP
+            </div>
+            <div class="legend-text">
+              <strong>SDP body</strong
+              ><span
+                >INVITE carries offer (Alice's codec list, IP, port). 200 OK
+                carries answer (Bob's choice).</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-auth">PA</div>
-          <div class="legend-text">
-            <strong>Proxy-Authorization</strong
-            ><span
-              >Credential header Alice adds in F4 after receiving the 407
-              challenge (MD5 digest).</span
+          <div class="legend-row">
+            <div class="legend-chip c-auth">PA</div>
+            <div class="legend-text">
+              <strong>Proxy-Authorization</strong
+              ><span
+                >Credential header Alice adds in F4 after receiving the 407
+                challenge (MD5 digest).</span
+              >
+            </div>
+          </div>
+          <div class="legend-row">
+            <div
+              class="legend-chip"
+              style="background: #f3f4f6; color: #374151"
             >
+              CID
+            </div>
+            <div class="legend-text">
+              <strong>Call-ID</strong
+              ><span
+                >Unique string linking all 23 messages to the same session. Set
+                in F1, never changes.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip" style="background: #f3f4f6; color: #374151">
-            CID
-          </div>
-          <div class="legend-text">
-            <strong>Call-ID</strong
-            ><span
-              >Unique string linking all 23 messages to the same session. Set in
-              F1, never changes.</span
+          <div class="legend-row">
+            <div
+              class="legend-chip"
+              style="background: #f3f4f6; color: #374151"
             >
+              CSeq
+            </div>
+            <div class="legend-text">
+              <strong>CSeq</strong
+              ><span
+                >Sequence number + method. F4 has higher CSeq than F1 —
+                incremented on retry.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip" style="background: #f3f4f6; color: #374151">
-            CSeq
-          </div>
-          <div class="legend-text">
-            <strong>CSeq</strong
-            ><span
-              >Sequence number + method. F4 has higher CSeq than F1 —
-              incremented on retry.</span
-            >
-          </div>
-        </div>
         </div>
       </div>
       <div class="legend-card">
         <h3>3 phases at a glance</h3>
         <div class="legend-rows-wrap">
-        <div class="legend-row">
-          <div class="legend-chip c-inv">①</div>
-          <div class="legend-text">
-            <strong>Call Setup (F1–F17)</strong
-            ><span
-              >Auth handshake → INVITE chain through both proxies → provisional
-              100/180 → 200 OK with SDP → ACK to establish dialog.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-inv">①</div>
+            <div class="legend-text">
+              <strong>Call Setup (F1–F17)</strong
+              ><span
+                >Auth handshake → INVITE chain through both proxies →
+                provisional 100/180 → 200 OK with SDP → ACK to establish
+                dialog.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-ok">②</div>
-          <div class="legend-text">
-            <strong>RTP Media</strong
-            ><span
-              >Real-time UDP voice/video. Flows directly between Alice and Bob —
-              the SIP proxies are completely bypassed.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-ok">②</div>
+            <div class="legend-text">
+              <strong>RTP Media</strong
+              ><span
+                >Real-time UDP voice/video. Flows directly between Alice and Bob
+                — the SIP proxies are completely bypassed.</span
+              >
+            </div>
           </div>
-        </div>
-        <div class="legend-row">
-          <div class="legend-chip c-bye">③</div>
-          <div class="legend-text">
-            <strong>Teardown (F18–F23)</strong
-            ><span
-              >BYE traverses the proxy chain (per Record-Route). Each hop
-              releases state and replies 200 OK.</span
-            >
+          <div class="legend-row">
+            <div class="legend-chip c-bye">③</div>
+            <div class="legend-text">
+              <strong>Teardown (F18–F23)</strong
+              ><span
+                >BYE traverses the proxy chain (per Record-Route). Each hop
+                releases state and replies 200 OK.</span
+              >
+            </div>
           </div>
-        </div>
         </div>
       </div>
 
@@ -1801,14 +1845,46 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Sent by</td><td>Proxy (each hop locally)</td><td>End device — Bob</td></tr>
-            <tr><td>Meaning</td><td>"I received your request, processing"</td><td>"Bob's phone is physically ringing"</td></tr>
-            <tr><td>Forwarded by proxies</td><td>No — never forwarded upstream</td><td>Yes — relayed all the way to Alice</td></tr>
-            <tr><td>Effect on sender's neighbor</td><td>Stops retransmission timer</td><td>Alice hears ringback tone</td></tr>
-            <tr><td>Contains Contact header</td><td>No</td><td>Yes — Bob's direct address</td></tr>
-            <tr><td>Introduces Bob's tag</td><td>No</td><td>Yes — To: tag=bb88 appears here first</td></tr>
-            <tr><td>Changes dialog state</td><td>No</td><td>Yes — dialog moves to Early state</td></tr>
-            <tr><td>In this flow</td><td>F6 (P1→Alice), F8 (P2→P1)</td><td>F9 (Bob→P2), F10 (P2→P1), F11 (P1→Alice)</td></tr>
+            <tr>
+              <td>Sent by</td>
+              <td>Proxy (each hop locally)</td>
+              <td>End device — Bob</td>
+            </tr>
+            <tr>
+              <td>Meaning</td>
+              <td>"I received your request, processing"</td>
+              <td>"Bob's phone is physically ringing"</td>
+            </tr>
+            <tr>
+              <td>Forwarded by proxies</td>
+              <td>No — never forwarded upstream</td>
+              <td>Yes — relayed all the way to Alice</td>
+            </tr>
+            <tr>
+              <td>Effect on sender's neighbor</td>
+              <td>Stops retransmission timer</td>
+              <td>Alice hears ringback tone</td>
+            </tr>
+            <tr>
+              <td>Contains Contact header</td>
+              <td>No</td>
+              <td>Yes — Bob's direct address</td>
+            </tr>
+            <tr>
+              <td>Introduces Bob's tag</td>
+              <td>No</td>
+              <td>Yes — To: tag=bb88 appears here first</td>
+            </tr>
+            <tr>
+              <td>Changes dialog state</td>
+              <td>No</td>
+              <td>Yes — dialog moves to Early state</td>
+            </tr>
+            <tr>
+              <td>In this flow</td>
+              <td>F6 (P1→Alice), F8 (P2→P1)</td>
+              <td>F9 (Bob→P2), F10 (P2→P1), F11 (P1→Alice)</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -1819,39 +1895,209 @@
         <table class="ref-table">
           <thead>
             <tr>
-              <th style="width:80px">Code</th>
-              <th style="width:180px">Name</th>
+              <th style="width: 80px">Code</th>
+              <th style="width: 180px">Name</th>
               <th>Meaning &amp; When You See It</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="code-cell c1xx">100</td><td>Trying</td><td>Proxy acknowledges receipt. Stops retransmission timer. Never forwarded upstream.</td></tr>
-            <tr><td class="code-cell c1xx">180</td><td>Ringing</td><td>Called party's device is alerting the user. Phone is ringing. Forwarded to caller.</td></tr>
-            <tr><td class="code-cell c1xx">181</td><td>Call Is Being Forwarded</td><td>UAS is forwarding the call to another destination.</td></tr>
-            <tr><td class="code-cell c1xx">182</td><td>Queued</td><td>Called party is temporarily unavailable — call is queued.</td></tr>
-            <tr><td class="code-cell c1xx">183</td><td>Session Progress</td><td>Used for early media (e.g. ringback tone sent as RTP before answer).</td></tr>
-            <tr><td class="code-cell c2xx">200</td><td>OK</td><td>Request succeeded. On INVITE: carries SDP answer, dialog established.</td></tr>
-            <tr><td class="code-cell c2xx">202</td><td>Accepted</td><td>Used for REFER and SUBSCRIBE — request accepted but not yet acted upon.</td></tr>
-            <tr><td class="code-cell c3xx">301</td><td>Moved Permanently</td><td>Contact has a new permanent address. Caller should retry there.</td></tr>
-            <tr><td class="code-cell c3xx">302</td><td>Moved Temporarily</td><td>Contact is temporarily at a different address. Common in call-forwarding.</td></tr>
-            <tr><td class="code-cell c4xx">400</td><td>Bad Request</td><td>Malformed syntax — the server could not understand the request.</td></tr>
-            <tr><td class="code-cell c4xx">401</td><td>Unauthorized</td><td>End-device (UAS) demands authentication. Uses WWW-Authenticate header (not Proxy-Authenticate).</td></tr>
-            <tr><td class="code-cell c4xx">403</td><td>Forbidden</td><td>Server understood the request but refuses. Credentials valid but not authorized.</td></tr>
-            <tr><td class="code-cell c4xx">404</td><td>Not Found</td><td>Called party does not exist at this domain. URI is unknown.</td></tr>
-            <tr><td class="code-cell c4xx">407</td><td>Proxy Auth Required</td><td>Proxy demands credentials. Seen in F2 — triggers ACK (F3) + retry with Proxy-Authorization (F4).</td></tr>
-            <tr><td class="code-cell c4xx">408</td><td>Request Timeout</td><td>No response received in time. Server gave up waiting.</td></tr>
-            <tr><td class="code-cell c4xx">480</td><td>Temporarily Unavailable</td><td>Called party exists but is not available right now (offline, DND).</td></tr>
-            <tr><td class="code-cell c4xx">481</td><td>Call/Transaction Does Not Exist</td><td>Received BYE or CANCEL for a dialog the server has no record of.</td></tr>
-            <tr><td class="code-cell c4xx">486</td><td>Busy Here</td><td>Called party is busy on another call at this specific device.</td></tr>
-            <tr><td class="code-cell c4xx">487</td><td>Request Terminated</td><td>INVITE was cancelled by a CANCEL request before being answered.</td></tr>
-            <tr><td class="code-cell c4xx">488</td><td>Not Acceptable Here</td><td>SDP offer was rejected — no codec or media format overlap between the two sides.</td></tr>
-            <tr><td class="code-cell c5xx">500</td><td>Internal Server Error</td><td>Generic server-side failure. Something went wrong on the proxy or UAS.</td></tr>
-            <tr><td class="code-cell c5xx">503</td><td>Service Unavailable</td><td>Server is overloaded or down for maintenance. Often includes Retry-After header.</td></tr>
-            <tr><td class="code-cell c5xx">504</td><td>Server Timeout</td><td>Proxy did not receive a response from the downstream server in time.</td></tr>
-            <tr><td class="code-cell c5xx">513</td><td>Message Too Large</td><td>Request body or headers exceed the server's maximum size.</td></tr>
-            <tr><td class="code-cell" style="color:#6b21a8">600</td><td>Busy Everywhere</td><td>Called party is busy on all registered devices — not just one.</td></tr>
-            <tr><td class="code-cell" style="color:#6b21a8">603</td><td>Decline</td><td>Called party explicitly rejected the call. User pressed "Decline".</td></tr>
-            <tr><td class="code-cell" style="color:#6b21a8">604</td><td>Does Not Exist Anywhere</td><td>Called party is known to not exist — not just unknown at this domain.</td></tr>
+            <tr>
+              <td class="code-cell c1xx">100</td>
+              <td>Trying</td>
+              <td>
+                Proxy acknowledges receipt. Stops retransmission timer. Never
+                forwarded upstream.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c1xx">180</td>
+              <td>Ringing</td>
+              <td>
+                Called party's device is alerting the user. Phone is ringing.
+                Forwarded to caller.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c1xx">181</td>
+              <td>Call Is Being Forwarded</td>
+              <td>UAS is forwarding the call to another destination.</td>
+            </tr>
+            <tr>
+              <td class="code-cell c1xx">182</td>
+              <td>Queued</td>
+              <td>Called party is temporarily unavailable — call is queued.</td>
+            </tr>
+            <tr>
+              <td class="code-cell c1xx">183</td>
+              <td>Session Progress</td>
+              <td>
+                Used for early media (e.g. ringback tone sent as RTP before
+                answer).
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c2xx">200</td>
+              <td>OK</td>
+              <td>
+                Request succeeded. On INVITE: carries SDP answer, dialog
+                established.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c2xx">202</td>
+              <td>Accepted</td>
+              <td>
+                Used for REFER and SUBSCRIBE — request accepted but not yet
+                acted upon.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c3xx">301</td>
+              <td>Moved Permanently</td>
+              <td>
+                Contact has a new permanent address. Caller should retry there.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c3xx">302</td>
+              <td>Moved Temporarily</td>
+              <td>
+                Contact is temporarily at a different address. Common in
+                call-forwarding.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">400</td>
+              <td>Bad Request</td>
+              <td>
+                Malformed syntax — the server could not understand the request.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">401</td>
+              <td>Unauthorized</td>
+              <td>
+                End-device (UAS) demands authentication. Uses WWW-Authenticate
+                header (not Proxy-Authenticate).
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">403</td>
+              <td>Forbidden</td>
+              <td>
+                Server understood the request but refuses. Credentials valid but
+                not authorized.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">404</td>
+              <td>Not Found</td>
+              <td>
+                Called party does not exist at this domain. URI is unknown.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">407</td>
+              <td>Proxy Auth Required</td>
+              <td>
+                Proxy demands credentials. Seen in F2 — triggers ACK (F3) +
+                retry with Proxy-Authorization (F4).
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">408</td>
+              <td>Request Timeout</td>
+              <td>No response received in time. Server gave up waiting.</td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">480</td>
+              <td>Temporarily Unavailable</td>
+              <td>
+                Called party exists but is not available right now (offline,
+                DND).
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">481</td>
+              <td>Call/Transaction Does Not Exist</td>
+              <td>
+                Received BYE or CANCEL for a dialog the server has no record of.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">486</td>
+              <td>Busy Here</td>
+              <td>
+                Called party is busy on another call at this specific device.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">487</td>
+              <td>Request Terminated</td>
+              <td>
+                INVITE was cancelled by a CANCEL request before being answered.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c4xx">488</td>
+              <td>Not Acceptable Here</td>
+              <td>
+                SDP offer was rejected — no codec or media format overlap
+                between the two sides.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c5xx">500</td>
+              <td>Internal Server Error</td>
+              <td>
+                Generic server-side failure. Something went wrong on the proxy
+                or UAS.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c5xx">503</td>
+              <td>Service Unavailable</td>
+              <td>
+                Server is overloaded or down for maintenance. Often includes
+                Retry-After header.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c5xx">504</td>
+              <td>Server Timeout</td>
+              <td>
+                Proxy did not receive a response from the downstream server in
+                time.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell c5xx">513</td>
+              <td>Message Too Large</td>
+              <td>Request body or headers exceed the server's maximum size.</td>
+            </tr>
+            <tr>
+              <td class="code-cell" style="color: #6b21a8">600</td>
+              <td>Busy Everywhere</td>
+              <td>
+                Called party is busy on all registered devices — not just one.
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell" style="color: #6b21a8">603</td>
+              <td>Decline</td>
+              <td>
+                Called party explicitly rejected the call. User pressed
+                "Decline".
+              </td>
+            </tr>
+            <tr>
+              <td class="code-cell" style="color: #6b21a8">604</td>
+              <td>Does Not Exist Anywhere</td>
+              <td>
+                Called party is known to not exist — not just unknown at this
+                domain.
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -1867,51 +2113,51 @@
 
     <script>
       const tips = {
-        F1: `<strong>INVITE F1 — First Attempt (No Credentials)</strong><span class="tt-note">Alice initiates a call to Bob. No auth credentials yet — Proxy 1 will challenge her.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">INVITE sip:bob@example.com SIP/2.0<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 INVITE<br>Contact: &lt;sip:alice@192.168.1.10:5060&gt;</span><span class="tt-section">── SDP BODY (Offer) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.1.10<br>m=audio 49170 RTP/AVP 0 8<br>a=rtpmap:0 PCMU/8000<br>a=rtpmap:8 PCMA/8000</span><span class="tt-note">Alice proposes: RTP on port 49170, G.711 μ-law &amp; a-law codecs</span>`,
+        F1: `<strong>F1 — INVITE — Alice → Proxy 1</strong><span class="tt-note">First attempt. Alice initiates the call with no credentials yet — P1 will challenge her.</span><span class="tt-delta">△ First message — all headers are new</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">INVITE sip:bob@example.com SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a</span><span class="tt-changed">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-changed">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-changed">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-changed">CSeq: 1 INVITE</span><span class="tt-changed">Contact: &lt;sip:alice@192.168.1.10:5060&gt;</span><span class="tt-section">── SDP BODY (Offer) ──</span><span class="tt-changed">v=0</span><span class="tt-changed">c=IN IP4 192.168.1.10</span><span class="tt-changed">m=audio 49170 RTP/AVP 0 8</span><span class="tt-changed">a=rtpmap:0 PCMU/8000</span><span class="tt-changed">a=rtpmap:8 PCMA/8000</span><span class="tt-note">Alice proposes: RTP on port 49170, G.711 μ-law &amp; a-law codecs</span>`,
 
-        F2: `<strong>407 Proxy Auth Required F2</strong><span class="tt-note">Proxy 1 rejects and challenges Alice with a Digest nonce. She must hash her password with it and retry.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 407 Proxy Authentication Required<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=p1tmp<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 INVITE<br>Proxy-Authenticate: Digest realm="example.com",<br>  nonce="f84f1cec41e6cbe5aea9c832e2"</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F2: `<strong>F2 — 407 Proxy Auth Required — Proxy 1 → Alice</strong><span class="tt-note">P1 rejects F1 and challenges Alice with a Digest nonce. She must hash password+nonce and retry.</span><span class="tt-delta">△ Changes vs F1: response status line, To-tag added (p1tmp), Proxy-Authenticate added, Contact &amp; SDP removed</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 407 Proxy Authentication Required</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-changed">To: "Bob" &lt;sip:bob@example.com&gt;;tag=p1tmp</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 INVITE</span><span class="tt-changed">Proxy-Authenticate: Digest realm="example.com",</span><span class="tt-changed">  nonce="f84f1cec41e6cbe5aea9c832e2"</span><span class="tt-removed">Contact: (not included in error responses)</span><span class="tt-removed">SDP: (no body — signaling only)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F3: `<strong>ACK F3 — Acknowledges the 407</strong><span class="tt-note">RFC 3261: every final response to INVITE must be ACK'd. This ACK stops at Proxy 1 — not forwarded.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">ACK sip:bob@example.com SIP/2.0<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=p1tmp<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 ACK</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F3: `<strong>F3 — ACK — Alice → Proxy 1</strong><span class="tt-note">RFC 3261: every final response to INVITE must be ACK'd. This ACK is for the 407 — stops at P1, not forwarded.</span><span class="tt-delta">△ Changes vs F2: method→ACK, CSeq method changed, Proxy-Authenticate removed</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">ACK sip:bob@example.com SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK1a</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=p1tmp</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-changed">CSeq: 1 ACK</span><span class="tt-removed">Proxy-Authenticate: (not echoed in ACK)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F4: `<strong>INVITE F4 — Retry With Credentials</strong><span class="tt-note">Alice resends INVITE with Proxy-Authorization (MD5 digest of password + nonce). CSeq incremented to 2.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">INVITE sip:bob@example.com SIP/2.0<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Proxy-Authorization: Digest username="alice",<br>  realm="example.com", nonce="f84f1cec41e6",<br>  response="6629fae49393a05397450978507c4ef1"</span><span class="tt-section">── SDP BODY (Offer — same as F1) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.1.10<br>m=audio 49170 RTP/AVP 0 8<br>a=rtpmap:0 PCMU/8000</span><span class="tt-note">Same media offer: Alice's RTP on port 49170, G.711</span>`,
+        F4: `<strong>F4 — INVITE — Alice → Proxy 1 (Retry with Credentials)</strong><span class="tt-note">Second INVITE attempt. New branch, CSeq incremented to 2. Proxy-Authorization added with MD5 hash.</span><span class="tt-delta">△ Changes vs F3: method→INVITE, new branch, CSeq→2 INVITE, To-tag cleared, Contact restored, Proxy-Authorization added, SDP restored</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">INVITE sip:bob@example.com SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-changed">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-changed">CSeq: 2 INVITE</span><span class="tt-changed">Contact: &lt;sip:alice@192.168.1.10:5060&gt;</span><span class="tt-changed">Proxy-Authorization: Digest username="alice",</span><span class="tt-changed">  realm="example.com", nonce="f84f1cec41e6",</span><span class="tt-changed">  response="6629fae49393a05397450978507c4ef1"</span><span class="tt-section">── SDP BODY (Offer — identical to F1) ──</span><span class="tt-changed">v=0</span><span class="tt-changed">c=IN IP4 192.168.1.10</span><span class="tt-changed">m=audio 49170 RTP/AVP 0 8</span><span class="tt-changed">a=rtpmap:0 PCMU/8000</span><span class="tt-note">Same media offer as F1: Alice's RTP on port 49170, G.711 μ-law</span>`,
 
-        F5: `<strong>INVITE F5 — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 validates auth, prepends its Via &amp; Record-Route, and routes to P2 via routing table.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">INVITE sip:bob@example.com SIP/2.0<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>Record-Route: &lt;sip:10.10.1.1:5060;lr&gt;<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── SDP BODY (Offer — forwarded) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.1.10<br>m=audio 49170 RTP/AVP 0 8</span><span class="tt-note">SDP body unchanged; Via &amp; Record-Route added by P1</span>`,
+        F5: `<strong>F5 — INVITE — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 validates auth, prepends Via + Record-Route, strips Proxy-Authorization, and forwards to P2.</span><span class="tt-delta">△ Changes vs F4: Via (P1 added own on top), Record-Route added, Proxy-Authorization removed (consumed)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-code">INVITE sip:bob@example.com SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f  ← P1 added</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-changed">Record-Route: &lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:alice@192.168.1.10:5060&gt;</span><span class="tt-removed">Proxy-Authorization: (stripped — consumed by P1, never forwarded)</span><span class="tt-section">── SDP BODY (forwarded unchanged) ──</span><span class="tt-code">v=0</span><span class="tt-code">c=IN IP4 192.168.1.10</span><span class="tt-code">m=audio 49170 RTP/AVP 0 8</span><span class="tt-code">a=rtpmap:0 PCMU/8000</span>`,
 
-        F6: `<strong>100 Trying F6 — Proxy 1 → Alice</strong><span class="tt-note">P1 immediately acknowledges F4 receipt. Stops Alice's retransmission timer (SIP/UDP is unreliable).</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 100 Trying<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F6: `<strong>F6 — 100 Trying — Proxy 1 → Alice</strong><span class="tt-note">P1 sends this immediately after receiving F4 to stop Alice's UDP retransmission timer. Not forwarded.</span><span class="tt-delta">△ Changes vs F4: response (not request), only Alice's Via kept, no Contact, no Proxy-Authorization, no SDP</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 100 Trying</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-removed">Contact: (not in 1xx responses)</span><span class="tt-removed">Record-Route: (P1-generated 100 does not echo Record-Route)</span><span class="tt-removed">SDP: (no body)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">P1-generated provisional — only Alice's Via address is kept (that is where P1 sends it)</span>`,
 
-        F7: `<strong>INVITE F7 — Proxy 2 → Bob</strong><span class="tt-note">P2 adds its Via &amp; Record-Route then delivers to Bob's registered contact address.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">INVITE sip:bob@192.168.2.5:5060 SIP/2.0<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── SDP BODY (Offer — forwarded) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.1.10<br>m=audio 49170 RTP/AVP 0 8</span><span class="tt-note">Bob sees Alice's RTP endpoint to prepare his SDP answer</span>`,
+        F7: `<strong>F7 — INVITE — Proxy 2 → Bob</strong><span class="tt-note">P2 adds Via + Record-Route, rewrites request-URI to Bob's registered IP, and delivers to Bob.</span><span class="tt-delta">△ Changes vs F5: request-URI → Bob's real IP, Via (P2 added own on top), Record-Route includes P2</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">INVITE sip:bob@192.168.2.5:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f  ← P2 added</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-changed">Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:alice@192.168.1.10:5060&gt;</span><span class="tt-section">── SDP BODY (forwarded unchanged) ──</span><span class="tt-code">v=0</span><span class="tt-code">c=IN IP4 192.168.1.10</span><span class="tt-code">m=audio 49170 RTP/AVP 0 8</span><span class="tt-code">a=rtpmap:0 PCMU/8000</span><span class="tt-note">Bob reads Alice's RTP address to prepare his SDP answer</span>`,
 
-        F8: `<strong>100 Trying F8 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 acknowledges INVITE receipt to P1, stopping P1's retransmission timer for this transaction.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 100 Trying<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F8: `<strong>F8 — 100 Trying — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 sends this immediately after receiving F7 to stop P1's retransmission timer. Not forwarded further.</span><span class="tt-delta">△ Changes vs F7: response (not request), only P1's Via kept, no Record-Route, no Contact, no SDP</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 100 Trying</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-removed">Contact: (not in 1xx responses)</span><span class="tt-removed">Record-Route: (P2-generated 100 does not echo Record-Route)</span><span class="tt-removed">SDP: (no body)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">P2-generated provisional — only P1's Via address is kept (P2 sends it to 10.10.1.1)</span>`,
 
-        F9: `<strong>180 Ringing F9 — Bob → Proxy 2</strong><span class="tt-note">Bob's UA alerts the user (phone ringing). Bob's dialog tag (bb88) added to To header for the first time.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F9: `<strong>F9 — 180 Ringing — Bob → Proxy 2</strong><span class="tt-note">Bob's UA is alerting the user. First appearance of Bob's dialog tag (bb88) in To. Bob's Contact revealed.</span><span class="tt-delta">△ Changes vs F7: response status, To gets tag=bb88 (first time!), Contact=Bob's real address, no SDP, no Record-Route</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 180 Ringing</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-changed">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-changed">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">All 3 Vias present — response must travel back through every proxy (P2→P1→Alice)</span>`,
 
-        F10: `<strong>180 Ringing F10 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 180 upstream. Strips its Via (top) — responses always follow the Via stack in reverse.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F10: `<strong>F10 — 180 Ringing — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 180 upstream. Strips its own Via — responses always follow Via stack in reverse order.</span><span class="tt-delta">△ Changes vs F9: Via stack — P2 stripped its Via (top entry removed, now 2 Vias remain)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 180 Ringing</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f  ← stripped by P2</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f  ← now on top</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F11: `<strong>180 Ringing F11 — Proxy 1 → Alice</strong><span class="tt-note">P1 delivers 180 to Alice. Alice hears ringback tone. Bob's tag (bb88) now visible in To header.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 180 Ringing<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F11: `<strong>F11 — 180 Ringing — Proxy 1 → Alice</strong><span class="tt-note">P1 strips its Via and forwards to Alice. Alice hears ringback. Dialog ID now complete (both tags present).</span><span class="tt-delta">△ Changes vs F10: Via stack — P1 stripped its Via (top entry removed, now 1 Via remains)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 180 Ringing</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f  ← stripped by P1</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b  ← now on top (only one left)</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F12: `<strong>200 OK F12 — Bob Answers!</strong><span class="tt-note">Critical message: Bob's SDP answer contains his chosen codec, RTP IP, and port. Media can now flow.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;<br>Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (Answer) ──</span><span class="tt-code">v=0<br>o=bob 98765 1 IN IP4 192.168.2.5<br>c=IN IP4 192.168.2.5<br>m=audio 49180 RTP/AVP 0<br>a=rtpmap:0 PCMU/8000</span><span class="tt-note">Bob selects PCMU on port 49180 — RTP now ready to flow</span>`,
+        F12: `<strong>F12 — 200 OK — Bob Answers!</strong><span class="tt-note">Bob picks up. Critical message: SDP Answer with Bob's codec + RTP IP + port. Record-Route echoed. Media can now flow.</span><span class="tt-delta">△ Changes vs F9: status→200 OK, Record-Route added (echoed), SDP body added (Bob's answer)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-changed">Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (Answer) ──</span><span class="tt-changed">v=0</span><span class="tt-changed">o=bob 98765 1 IN IP4 192.168.2.5</span><span class="tt-changed">c=IN IP4 192.168.2.5</span><span class="tt-changed">m=audio 49180 RTP/AVP 0</span><span class="tt-changed">a=rtpmap:0 PCMU/8000</span><span class="tt-note">Bob selects PCMU on port 49180. Alice will send RTP to 192.168.2.5:49180</span>`,
 
-        F13: `<strong>200 OK F13 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 200 OK upstream stripping its Via. Record-Route kept so P2 stays in-path for BYE.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;<br>Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (Answer — forwarded) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.2.5<br>m=audio 49180 RTP/AVP 0</span><span class="tt-note">Bob's RTP endpoint relayed toward Alice</span>`,
+        F13: `<strong>F13 — 200 OK — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 relays 200 OK upstream stripping its Via. Record-Route kept intact so P2 stays in-path for BYE.</span><span class="tt-delta">△ Changes vs F12: Via stack — P2 stripped its Via (top entry removed, now 2 Vias remain)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2f  ← stripped by P2</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f  ← now on top</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-code">Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (forwarded unchanged) ──</span><span class="tt-code">v=0</span><span class="tt-code">o=bob 98765 1 IN IP4 192.168.2.5</span><span class="tt-code">c=IN IP4 192.168.2.5</span><span class="tt-code">m=audio 49180 RTP/AVP 0</span><span class="tt-code">a=rtpmap:0 PCMU/8000</span>`,
 
-        F14: `<strong>200 OK F14 — Proxy 1 → Alice</strong><span class="tt-note">Alice receives Bob's SDP. Now she knows his RTP IP (192.168.2.5) and port (49180). Must send ACK.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 INVITE<br>Contact: &lt;sip:bob@192.168.2.5:5060&gt;<br>Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (Answer — forwarded) ──</span><span class="tt-code">v=0<br>c=IN IP4 192.168.2.5<br>m=audio 49180 RTP/AVP 0<br>a=rtpmap:0 PCMU/8000</span><span class="tt-note">Alice learns: send RTP to 192.168.2.5:49180 using PCMU (G.711)</span>`,
+        F14: `<strong>F14 — 200 OK — Proxy 1 → Alice</strong><span class="tt-note">Alice receives Bob's SDP. Now she knows his RTP IP + port. She must send ACK to complete the handshake.</span><span class="tt-delta">△ Changes vs F13: Via stack — P1 stripped its Via (top entry removed, now 1 Via remains)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1f  ← stripped by P1</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK2b  ← now on top (only one left)</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 INVITE</span><span class="tt-code">Contact: &lt;sip:bob@192.168.2.5:5060&gt;</span><span class="tt-code">Record-Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── SDP BODY (forwarded unchanged) ──</span><span class="tt-code">v=0</span><span class="tt-code">o=bob 98765 1 IN IP4 192.168.2.5</span><span class="tt-code">c=IN IP4 192.168.2.5</span><span class="tt-code">m=audio 49180 RTP/AVP 0</span><span class="tt-code">a=rtpmap:0 PCMU/8000</span><span class="tt-note">Alice learns: send RTP to 192.168.2.5:49180. She also saves Record-Route to build her Route set for ACK.</span>`,
 
-        F15: `<strong>ACK F15 — 3-Way Handshake Complete</strong><span class="tt-note">Alice confirms the 200 OK. Completes the INVITE transaction. RTP media begins flowing after this.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">ACK sip:bob@192.168.2.5:5060 SIP/2.0<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 ACK<br>Route: &lt;sip:10.10.1.1:5060;lr&gt;,&lt;sip:10.10.2.1:5060;lr&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F15: `<strong>F15 — ACK — Alice → Proxy 1 (3-Way Handshake Complete)</strong><span class="tt-note">Alice confirms the 200 OK. New branch for the ACK. Route built from Record-Route (reversed). RTP starts after this.</span><span class="tt-delta">△ Changes vs F14: method→ACK, request-URI=Bob's IP, new branch, CSeq→ACK, Route added (from RR), no SDP</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">ACK sip:bob@192.168.2.5:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-changed">CSeq: 2 ACK</span><span class="tt-changed">Route: &lt;sip:10.10.1.1:5060;lr&gt;,&lt;sip:10.10.2.1:5060;lr&gt;</span><span class="tt-removed">Contact: (not sent in ACK — already established in dialog)</span><span class="tt-removed">Record-Route: (not echoed — Alice used it to build Route above)</span><span class="tt-removed">SDP: (no body in ACK for 200 OK)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">Route reversed from Record-Route: P1 first (closest to Alice), P2 second. Alice sends to P1 which routes to P2→Bob.</span>`,
 
-        F16: `<strong>ACK F16 — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 forwards ACK following the Route header (constructed from Record-Route in the 200 OK).</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">ACK sip:bob@192.168.2.5:5060 SIP/2.0<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1a<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 ACK<br>Route: &lt;sip:10.10.2.1:5060;lr&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F16: `<strong>F16 — ACK — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 adds its Via, removes the first Route entry (itself), and forwards ACK toward P2.</span><span class="tt-delta">△ Changes vs F15: Via (P1 added own on top), first Route entry consumed (P1 removed itself)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-code">ACK sip:bob@192.168.2.5:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1a  ← P1 added</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 ACK</span><span class="tt-changed">Route: &lt;sip:10.10.2.1:5060;lr&gt;</span><span class="tt-removed">Route: &lt;sip:10.10.1.1:5060;lr&gt;  ← consumed by P1 (P1 is the route, so it removed itself)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F17: `<strong>ACK F17 — Proxy 2 → Bob</strong><span class="tt-note">Bob receives ACK. The SIP dialog is fully established. Both sides can now exchange RTP packets.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">ACK sip:bob@192.168.2.5:5060 SIP/2.0<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2a<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1a<br>Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c<br>From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 2 ACK</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F17: `<strong>F17 — ACK — Proxy 2 → Bob</strong><span class="tt-note">P2 adds its Via, consumes the last Route entry (itself), and delivers ACK to Bob. Dialog fully established!</span><span class="tt-delta">△ Changes vs F16: Via (P2 added own on top), last Route entry consumed (now empty)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-code">ACK sip:bob@192.168.2.5:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2a  ← P2 added</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1a</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.1.10:5060;branch=z9hG4bK3c</span><span class="tt-code">From: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">To: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 2 ACK</span><span class="tt-removed">Route: (empty — all entries consumed, P2 delivers directly to Bob)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">After this: RTP flows directly Alice↔Bob (port 49170↔49180), bypassing both proxies</span>`,
 
-        F18: `<strong>BYE F18 — Bob Initiates Hang-Up</strong><span class="tt-note">Bob ends the call. Note From/To are reversed: Bob is now the requester. Route follows Record-Route.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">BYE sip:alice@192.168.1.10:5060 SIP/2.0<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE<br>Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F18: `<strong>F18 — BYE — Bob → Proxy 2 (Hang-Up)</strong><span class="tt-note">Bob ends the call. From/To swapped — Bob is now requester. CSeq reset. Route built from saved Record-Route.</span><span class="tt-delta">△ New request: method→BYE, From↔To reversed, new branch, CSeq reset to 1 BYE, Route added (from Record-Route)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-changed">BYE sip:alice@192.168.1.10:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1</span><span class="tt-changed">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-changed">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-changed">CSeq: 1 BYE</span><span class="tt-changed">Route: &lt;sip:10.10.2.1:5060;lr&gt;,&lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">Same Call-ID — still the same dialog! From/To tags identify the direction (Bob→Alice this time)</span>`,
 
-        F19: `<strong>BYE F19 — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 forwards BYE upstream. From/To remain reversed (Bob→Alice). P2 releases its dialog state.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">BYE sip:alice@192.168.1.10:5060 SIP/2.0<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE<br>Route: &lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F19: `<strong>F19 — BYE — Proxy 2 → Proxy 1</strong><span class="tt-note">P2 forwards BYE upstream. Adds its Via, removes first Route entry (itself). P2 releases dialog state.</span><span class="tt-delta">△ Changes vs F18: Via (P2 added own on top), first Route entry consumed (P2 removed itself)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-code">BYE sip:alice@192.168.1.10:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b  ← P2 added</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1</span><span class="tt-code">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 BYE</span><span class="tt-changed">Route: &lt;sip:10.10.1.1:5060;lr&gt;</span><span class="tt-removed">Route: &lt;sip:10.10.2.1:5060;lr&gt;  ← consumed by P2 (P2 is the route, so it removed itself)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F20: `<strong>BYE F20 — Proxy 1 → Alice</strong><span class="tt-note">P1 delivers BYE to Alice. Alice immediately stops RTP transmission and frees media resources.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">BYE sip:alice@192.168.1.10:5060 SIP/2.0<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1b<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F20: `<strong>F20 — BYE — Proxy 1 → Alice</strong><span class="tt-note">P1 adds its Via, removes the last Route entry, and delivers BYE directly to Alice. Alice stops RTP.</span><span class="tt-delta">△ Changes vs F19: Via (P1 added own on top), last Route entry consumed (now empty)</span><span class="tt-section">── SIP REQUEST LINE ──</span><span class="tt-code">BYE sip:alice@192.168.1.10:5060 SIP/2.0</span><span class="tt-section">── HEADERS ──</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1b  ← P1 added</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1</span><span class="tt-code">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 BYE</span><span class="tt-removed">Route: (empty — all consumed, P1 delivers directly to Alice)</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F21: `<strong>200 OK F21 — Alice Confirms BYE</strong><span class="tt-note">Alice accepts the BYE, stops RTP, frees port 49170. Response follows Via stack back toward Bob.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1b<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F21: `<strong>F21 — 200 OK — Alice → Proxy 1 (BYE Accepted)</strong><span class="tt-note">Alice confirms BYE. Stops RTP, frees port 49170. Response echoes the same Via stack back toward Bob.</span><span class="tt-delta">△ Changes vs F20: status line (response), same Via stack echoed back, no Route</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-changed">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1b</span><span class="tt-code">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1</span><span class="tt-code">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">P1 sends this to 10.10.1.1 (top Via), P2 sends to 10.10.2.1, then to 192.168.2.5 (Bob)</span>`,
 
-        F22: `<strong>200 OK F22 — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 relays Alice's 200 OK toward Bob. Strips its Via (top entry). P1 clears its own dialog state.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F22: `<strong>F22 — 200 OK — Proxy 1 → Proxy 2</strong><span class="tt-note">P1 strips its Via and relays 200 OK toward Bob. P1 clears its dialog state after forwarding.</span><span class="tt-delta">△ Changes vs F21: Via stack — P1 stripped its Via (top entry removed, now 2 Vias remain)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.1.1:5060;branch=z9hG4bKp1b  ← stripped by P1</span><span class="tt-changed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b  ← now on top</span><span class="tt-code">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1</span><span class="tt-code">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span>`,
 
-        F23: `<strong>200 OK F23 — Proxy 2 → Bob</strong><span class="tt-note">Bob receives final confirmation. SIP dialog fully terminated. All state cleared at every node.</span><span class="tt-section">── SIP HEADER ──</span><span class="tt-code">SIP/2.0 200 OK<br>Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1<br>From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88<br>To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11<br>Call-ID: a84b4c76@192.168.1.10<br>CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body (Signaling only)</span>`,
+        F23: `<strong>F23 — 200 OK — Proxy 2 → Bob</strong><span class="tt-note">Bob receives final teardown confirmation. SIP dialog fully terminated. All state cleared at every node.</span><span class="tt-delta">△ Changes vs F22: Via stack — P2 stripped its Via (top entry removed, now 1 Via remains)</span><span class="tt-section">── SIP STATUS LINE ──</span><span class="tt-code">SIP/2.0 200 OK</span><span class="tt-section">── HEADERS ──</span><span class="tt-removed">Via: SIP/2.0/UDP 10.10.2.1:5060;branch=z9hG4bKp2b  ← stripped by P2</span><span class="tt-changed">Via: SIP/2.0/UDP 192.168.2.5:5060;branch=z9hG4bKbye1  ← now on top (only one left)</span><span class="tt-code">From: "Bob" &lt;sip:bob@example.com&gt;;tag=bb88</span><span class="tt-code">To: "Alice" &lt;sip:alice@example.com&gt;;tag=aa11</span><span class="tt-code">Call-ID: a84b4c76@192.168.1.10</span><span class="tt-code">CSeq: 1 BYE</span><span class="tt-section">── BODY ──</span><span class="tt-code">No Body</span><span class="tt-note">P2 delivers to Bob's address (192.168.2.5) from the remaining Via. Call is fully over.</span>`,
 
         EP_ALICE: `<strong>Alice — UAC (User Agent Client)</strong><span class="tt-note">The caller. Initiates the SIP session and owns the outgoing dialog leg.</span><span class="tt-section">── IDENTITY ──</span><span class="tt-code">SIP URI : sip:alice@example.com<br>IP      : 192.168.1.10<br>SIP port: 5060<br>RTP port: 49170 (offered)</span><span class="tt-section">── ROLE IN THIS FLOW ──</span><span class="tt-code">• Sends INVITE to Proxy 1 (F1, F4)<br>• Receives 407 challenge, hashes password, retries<br>• Sends ACK to complete 3-way handshake (F15)<br>• Streams RTP directly to Bob (bypasses proxies)<br>• Receives BYE from Bob via proxy chain (F20)<br>• Sends 200 OK to terminate session (F21)</span><span class="tt-note">Alice never contacts Bob directly — all SIP signaling goes through the proxy chain.</span>`,
 

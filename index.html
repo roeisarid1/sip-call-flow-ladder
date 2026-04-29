@@ -404,6 +404,11 @@
       .ref-table .c3xx {
         color: #1e40af;
       }
+      .ref-table .example-cell {
+        color: #4b5563;
+        font-style: italic;
+        font-size: 0.76rem;
+      }
 
       /* ── FOOTER ── */
       .page-footer {
@@ -1899,8 +1904,9 @@
           <thead>
             <tr>
               <th style="width: 80px">Code</th>
-              <th style="width: 180px">Name</th>
+              <th style="width: 160px">Name</th>
               <th>Meaning &amp; When You See It</th>
+              <th style="width: 220px">Real World Example</th>
             </tr>
           </thead>
           <tbody>
@@ -1911,6 +1917,7 @@
                 Proxy acknowledges receipt. Stops retransmission timer. Never
                 forwarded upstream.
               </td>
+              <td class="example-cell">Alice sends INVITE → P1 immediately replies 100 while forwarding to P2 (F6 in our flow)</td>
             </tr>
             <tr>
               <td class="code-cell c1xx">180</td>
@@ -1919,16 +1926,19 @@
                 Called party's device is alerting the user. Phone is ringing.
                 Forwarded to caller.
               </td>
+              <td class="example-cell">Bob's phone starts ringing → sends 180 back through P2→P1→Alice (F9–F11 in our flow)</td>
             </tr>
             <tr>
               <td class="code-cell c1xx">181</td>
               <td>Call Is Being Forwarded</td>
               <td>UAS is forwarding the call to another destination.</td>
+              <td class="example-cell">You call Bob's office → his phone auto-forwards to his mobile → sends 181 while redirecting</td>
             </tr>
             <tr>
               <td class="code-cell c1xx">182</td>
               <td>Queued</td>
               <td>Called party is temporarily unavailable — call is queued.</td>
+              <td class="example-cell">You call a support hotline → all agents are busy → system queues your call and sends 182</td>
             </tr>
             <tr>
               <td class="code-cell c1xx">183</td>
@@ -1937,6 +1947,7 @@
                 Used for early media (e.g. ringback tone sent as RTP before
                 answer).
               </td>
+              <td class="example-cell">You call an IVR system → it plays "press 1 for sales" as RTP audio before the call is answered</td>
             </tr>
             <tr>
               <td class="code-cell c2xx">200</td>
@@ -1945,6 +1956,7 @@
                 Request succeeded. On INVITE: carries SDP answer, dialog
                 established.
               </td>
+              <td class="example-cell">Bob picks up the phone → sends 200 OK with SDP answer (F12 in our flow)</td>
             </tr>
             <tr>
               <td class="code-cell c2xx">202</td>
@@ -1953,6 +1965,7 @@
                 Used for REFER and SUBSCRIBE — request accepted but not yet
                 acted upon.
               </td>
+              <td class="example-cell">Alice subscribes to Bob's presence status → server sends 202 while processing the subscription</td>
             </tr>
             <tr>
               <td class="code-cell c3xx">301</td>
@@ -1960,6 +1973,7 @@
               <td>
                 Contact has a new permanent address. Caller should retry there.
               </td>
+              <td class="example-cell">Bob changed his SIP URI forever → server sends 301 with new Contact so Alice can update her address book</td>
             </tr>
             <tr>
               <td class="code-cell c3xx">302</td>
@@ -1968,6 +1982,7 @@
                 Contact is temporarily at a different address. Common in
                 call-forwarding.
               </td>
+              <td class="example-cell">Bob set call forwarding to his mobile for the day → server sends 302 with his mobile SIP address</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">400</td>
@@ -1975,6 +1990,7 @@
               <td>
                 Malformed syntax — the server could not understand the request.
               </td>
+              <td class="example-cell">Alice sends INVITE with a missing or malformed From header → proxy can't parse it → 400</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">401</td>
@@ -1983,6 +1999,7 @@
                 End-device (UAS) demands authentication. Uses WWW-Authenticate
                 header (not Proxy-Authenticate).
               </td>
+              <td class="example-cell">Alice sends REGISTER without credentials → the registrar (not proxy) challenges her with 401</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">403</td>
@@ -1991,6 +2008,7 @@
                 Server understood the request but refuses. Credentials valid but
                 not authorized.
               </td>
+              <td class="example-cell">Alice tries to call an international number her account isn't allowed to dial → proxy sends 403</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">404</td>
@@ -1998,6 +2016,7 @@
               <td>
                 Called party does not exist at this domain. URI is unknown.
               </td>
+              <td class="example-cell">Alice dials sip:nobody@example.com → proxy has no record of that user → sends 404</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">407</td>
@@ -2006,11 +2025,13 @@
                 Proxy demands credentials. Seen in F2 — triggers ACK (F3) +
                 retry with Proxy-Authorization (F4).
               </td>
+              <td class="example-cell">P1 doesn't recognize Alice → sends 407 with a nonce → Alice hashes her password and retries (F2 in our flow)</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">408</td>
               <td>Request Timeout</td>
               <td>No response received in time. Server gave up waiting.</td>
+              <td class="example-cell">Alice calls Bob → his phone is powered off → proxy waits 32 seconds with no response → sends 408</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">480</td>
@@ -2019,6 +2040,7 @@
                 Called party exists but is not available right now (offline,
                 DND).
               </td>
+              <td class="example-cell">Bob enabled Do Not Disturb on his phone → it sends 480 instead of ringing</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">481</td>
@@ -2026,6 +2048,7 @@
               <td>
                 Received BYE or CANCEL for a dialog the server has no record of.
               </td>
+              <td class="example-cell">Proxy crashes and restarts mid-call → Alice sends BYE → proxy has no memory of that dialog → 481</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">486</td>
@@ -2033,6 +2056,7 @@
               <td>
                 Called party is busy on another call at this specific device.
               </td>
+              <td class="example-cell">Bob is already on a call on his desk phone → that device sends 486 (his mobile might still ring)</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">487</td>
@@ -2040,6 +2064,7 @@
               <td>
                 INVITE was cancelled by a CANCEL request before being answered.
               </td>
+              <td class="example-cell">Alice calls Bob then hangs up before he answers → Alice's UA sends CANCEL → Bob's phone responds 487</td>
             </tr>
             <tr>
               <td class="code-cell c4xx">488</td>
@@ -2048,6 +2073,7 @@
                 SDP offer was rejected — no codec or media format overlap
                 between the two sides.
               </td>
+              <td class="example-cell">Alice offers only G.729 codec → Bob's phone only supports PCMU → no overlap → Bob sends 488</td>
             </tr>
             <tr>
               <td class="code-cell c5xx">500</td>
@@ -2056,6 +2082,7 @@
                 Generic server-side failure. Something went wrong on the proxy
                 or UAS.
               </td>
+              <td class="example-cell">Proxy has a bug that crashes when processing a specific header → sends 500 back to Alice</td>
             </tr>
             <tr>
               <td class="code-cell c5xx">503</td>
@@ -2064,6 +2091,7 @@
                 Server is overloaded or down for maintenance. Often includes
                 Retry-After header.
               </td>
+              <td class="example-cell">Proxy is overloaded during peak hours → sends 503 with Retry-After: 30 → Alice retries in 30 seconds</td>
             </tr>
             <tr>
               <td class="code-cell c5xx">504</td>
@@ -2072,11 +2100,13 @@
                 Proxy did not receive a response from the downstream server in
                 time.
               </td>
+              <td class="example-cell">P1 forwards INVITE to P2 → P2 never responds → P1 gives up and sends 504 back to Alice</td>
             </tr>
             <tr>
               <td class="code-cell c5xx">513</td>
               <td>Message Too Large</td>
               <td>Request body or headers exceed the server's maximum size.</td>
+              <td class="example-cell">Alice sends INVITE with a very large SDP body (many codecs, video streams) → proxy rejects with 513</td>
             </tr>
             <tr>
               <td class="code-cell" style="color: #6b21a8">600</td>
@@ -2084,6 +2114,7 @@
               <td>
                 Called party is busy on all registered devices — not just one.
               </td>
+              <td class="example-cell">Bob is on a call on his desk phone AND his mobile → all devices busy → proxy sends 600 to Alice</td>
             </tr>
             <tr>
               <td class="code-cell" style="color: #6b21a8">603</td>
@@ -2092,6 +2123,7 @@
                 Called party explicitly rejected the call. User pressed
                 "Decline".
               </td>
+              <td class="example-cell">Bob sees Alice calling and deliberately presses the red button → his phone sends 603</td>
             </tr>
             <tr>
               <td class="code-cell" style="color: #6b21a8">604</td>
